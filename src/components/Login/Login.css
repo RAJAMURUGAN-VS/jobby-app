@@ -54,3 +54,8 @@
   border-radius: 7px;
   margin-top: 10px;
 }
+
+.login-form-error-message {
+  color: #ff0b37;
+  font-size: 12px;
+}
