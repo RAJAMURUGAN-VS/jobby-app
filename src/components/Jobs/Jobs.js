@@ -43,6 +43,21 @@ class Jobs extends Component {
     },
   ]
 
+  state = {employmentTypes: [], salaryRange: 0}
+
+  onChangeEmploymentTypeFilter = event => {
+    const {value, checked} = event.target
+    this.setState(prevState => ({
+      employmentTypes: checked
+        ? [...prevState.employmentTypes, value]
+        : prevState.employmentTypes.filter(each => each !== value),
+    }))
+  }
+
+  onChangeSalaryRangeFilter = event => {
+    this.setState({salaryRange: event.target.value})
+  }
+
   renderEmployeeTypes = () => (
     <ul className="filter-item-container">
       {this.employmentTypesList.map(each => (
@@ -51,6 +66,7 @@ class Jobs extends Component {
             type="checkbox"
             id={each.employmentTypeId}
             value={each.employmentTypeId}
+            onChange={this.onChangeEmploymentTypeFilter}
           />
           <label htmlFor={each.employmentTypeId} className="filter-label">
             {each.label}
@@ -66,8 +82,10 @@ class Jobs extends Component {
         <li key={each.salaryRangeId} className="filter-item">
           <input
             type="radio"
+            name="salary"
             id={each.salaryRangeId}
             value={each.salaryRangeId}
+            onChange={this.onChangeSalaryRangeFilter}
           />
           <label htmlFor={each.salaryRangeId} className="filter-label">
             {each.label}
@@ -78,6 +96,8 @@ class Jobs extends Component {
   )
 
   render() {
+    const {employmentTypes, salaryRange} = this.state
+
     return (
       <>
         <Navbar />
@@ -91,7 +111,10 @@ class Jobs extends Component {
             <p className="filter-title">Salary Range</p>
             {this.renderSalaryRanges()}
           </div>
-          <JobsList />
+          <JobsList
+            employmentTypes={employmentTypes}
+            salaryRange={salaryRange}
+          />
         </div>
       </>
     )
@@ -99,4 +122,3 @@ class Jobs extends Component {
 }
 
 export default Jobs
-

@@ -11,10 +11,21 @@ class JobsList extends Component {
     this.getJobsList()
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.employmentTypes !== this.props.employmentTypes ||
+      prevProps.salaryRange !== this.props.salaryRange
+    ) {
+      this.getJobsList()
+    }
+  }
+
   getJobsList = async () => {
     const {searchKey} = this.state
+    const {employmentTypes, salaryRange} = this.props
+    const employmentType = employmentTypes.join(',')
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/jobs?search=${searchKey}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${salaryRange}&search=${searchKey}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -85,5 +96,3 @@ class JobsList extends Component {
 }
 
 export default JobsList
-
-
