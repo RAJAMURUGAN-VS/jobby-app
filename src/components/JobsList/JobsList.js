@@ -5,15 +5,16 @@ import {IoMdSearch} from 'react-icons/io'
 import JobItem from '../JobItem/JobItem'
 
 class JobsList extends Component {
-  state = {jobsList: []}
+  state = {jobsList: [], searchKey: ''}
 
   componentDidMount() {
     this.getJobsList()
   }
 
   getJobsList = async () => {
+    const {searchKey} = this.state
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/jobs'
+    const url = `https://apis.ccbp.in/jobs?search=${searchKey}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -37,14 +38,41 @@ class JobsList extends Component {
     this.setState({jobsList: formattedJobsList})
   }
 
+  onChangeSearchKey = event => {
+    this.setState({searchKey: event.target.value})
+  }
+
+  onClickSearchButton = () => {
+    this.getJobsList()
+  }
+
+  onKeyDownSearchInput = event => {
+    if (event.key === 'Enter') {
+      this.getJobsList()
+    }
+  }
+
   render() {
-    const {jobsList} = this.state
+    const {jobsList, searchKey} = this.state
 
     return (
       <div className="jobs-list">
         <div className="job-search-container">
-          <input type="search" placeholder="Search" className="job-search" />
-          <IoMdSearch className="search-icon" />
+          <input
+            type="search"
+            placeholder="Search"
+            value={searchKey}
+            className="job-search"
+            onChange={this.onChangeSearchKey}
+            onKeyDown={this.onKeyDownSearchInput}
+          />
+          <button
+            type="button"
+            className="search-button"
+            onClick={this.onClickSearchButton}
+          >
+            <IoMdSearch className="search-icon" />
+          </button>
         </div>
         <ul className="jobs-list-container">
           {jobsList.map(each => (
@@ -57,4 +85,5 @@ class JobsList extends Component {
 }
 
 export default JobsList
+
 

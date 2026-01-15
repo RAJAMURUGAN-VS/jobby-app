@@ -16,6 +16,14 @@
   margin-bottom: 20px;
 }
 
+.search-button {
+  height: 100%;
+  background-color: transparent;
+  border-style: none;
+  padding: 0px;
+  cursor: pointer;
+}
+
 .job-search {
   border-style: none;
   background-color: transparent;
