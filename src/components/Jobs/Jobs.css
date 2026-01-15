@@ -1,13 +1,14 @@
 .jobs-container {
   display: flex;
   background-color: black;
-  padding: 40px;
+  padding: 50px;
   padding-top: 30px;
   height: 90vh;
 }
 
 .sidebar-container {
-  width: 30vw;
+  width: 20vw;
+  margin-right: 40px;
 }
 
 .filter-title {

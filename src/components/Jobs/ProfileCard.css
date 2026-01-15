@@ -1,0 +1,26 @@
+.profile-card-container {
+  background-color: #b6c5ff;
+  border-radius: 20px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-family: 'Roboto';
+}
+
+.profile-image {
+  height: auto;
+  width: 60px;
+}
+
+.profile-name {
+  color: #6366f1;
+  font-weight: bold;
+}
+
+.profile-description {
+  color: #2c364c;
+  margin: 0px;
+  font-size: 14px;
+}
