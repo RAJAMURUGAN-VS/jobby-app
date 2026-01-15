@@ -1,0 +1,36 @@
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #272727;
+  padding: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-family: 'Roboto';
+}
+
+.nav-element-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-website-logo {
+  height: auto;
+  width: 100px;
+}
+
+.nav-element {
+  color: white;
+  text-decoration: none;
+}
+
+.logout-button {
+  border-style: none;
+  background-color: #4f46e5;
+  color: white;
+  width: 90px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}

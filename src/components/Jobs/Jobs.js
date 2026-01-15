@@ -1,9 +1,15 @@
 import './Jobs.css'
 import {Component} from 'react'
+import Navbar from '../Navbar/Navbar'
 
 class Job extends Component {
   render() {
-    return <div>Jobs</div>
+    return (
+      <>
+        <Navbar />
+        <div>Jobs</div>
+      </>
+    )
   }
 }
 
