@@ -1,0 +1,28 @@
+.jobs-container {
+  display: flex;
+  background-color: black;
+  padding: 40px;
+  padding-top: 30px;
+  height: 90vh;
+}
+
+.sidebar-container {
+  width: 30vw;
+}
+
+.filter-title {
+  color: #f8fafc;
+}
+
+.filter-item-container {
+  padding: 0px;
+}
+
+.filter-item {
+  margin-bottom: 8px;
+}
+
+.filter-label {
+  color: #f1f5f9;
+  margin-left: 5px;
+}
