@@ -5,11 +5,14 @@
   min-height: 90vh;
 }
 
-.jobItem {
-  background-color: #272727;
+.job-item-details-card {
   border-radius: 10px;
   padding: 20px;
-  list-style-type: none;
+  padding-top: 40px;
+  background-color: #272727;
+  margin-bottom: 40px;
+  margin-top: 25px;
+  font-family: 'Roboto';
 }
 
 .description-title-container {
@@ -66,7 +69,7 @@
 .life-at-company-container {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
   margin-bottom: 40px;
 }

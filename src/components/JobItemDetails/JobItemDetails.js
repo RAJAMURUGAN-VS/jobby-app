@@ -5,6 +5,7 @@ import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn, MdEmail} from 'react-icons/md'
 import {FiExternalLink} from 'react-icons/fi'
 import Navbar from '../Navbar/Navbar'
+import SimilarJobs from '../SimilarJobs/SimilarJobs'
 
 class JobItemDetails extends Component {
   state = {jobDetails: {skills: [], lifeAtCompany: {}}, similarJobs: []}
@@ -74,7 +75,7 @@ class JobItemDetails extends Component {
 
     return (
       <>
-        <p className="details-title">Skills</p>
+        <h1 className="details-title">Skills</h1>
         <ul className="skills-list-container">
           {skills.map(each => (
             <li key={each.name} className="skills-container">
@@ -94,7 +95,7 @@ class JobItemDetails extends Component {
 
     return (
       <>
-        <p className="details-title">Life at Company</p>
+        <h1 className="details-title">Life at Company</h1>
         <div className="life-at-company-container">
           <p className="details-description">{description}</p>
           <img src={imageUrl} alt="comany" className="life-at-company-image" />
@@ -104,7 +105,7 @@ class JobItemDetails extends Component {
   }
 
   render() {
-    const {jobDetails} = this.state
+    const {jobDetails, similarJobs} = this.state
     const {
       companyLogoUrl,
       companyWebsiteUrl,
@@ -120,7 +121,7 @@ class JobItemDetails extends Component {
       <>
         <Navbar />
         <div className="job-item-details-container">
-          <div className="job-item-container">
+          <div className="job-item-details-card">
             <div className="job-title-container">
               <img
                 src={companyLogoUrl}
@@ -150,7 +151,7 @@ class JobItemDetails extends Component {
             </div>
             <hr />
             <div className="description-title-container">
-              <p className="details-title">Description</p>
+              <h1 className="details-title">Description</h1>
               <a href={companyWebsiteUrl} className="visit-container">
                 <p className="visit">Visit </p> <FiExternalLink />
               </a>
@@ -159,6 +160,7 @@ class JobItemDetails extends Component {
             {this.renderSkills()}
             {this.renderLifeAtCompany()}
           </div>
+          <SimilarJobs similarJobs={similarJobs} />
         </div>
       </>
     )
