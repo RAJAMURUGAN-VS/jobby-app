@@ -1,3 +1,26 @@
+.jobs-list-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.no-jobs-image {
+  height: auto;
+  width: 400px;
+}
+
+.failure-heading {
+  color: #f8fafc;
+  font-size: 30px;
+}
+
+.failure-description {
+  font-size: 12px;
+  color: #64748b;
+}
+
 .jobs-list {
   display: flex;
   flex-direction: column;

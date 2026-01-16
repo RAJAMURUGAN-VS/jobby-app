@@ -2,10 +2,18 @@ import './JobsList.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {IoMdSearch} from 'react-icons/io'
+import {ThreeDots} from 'react-loader-spinner'
 import JobItem from '../JobItem/JobItem'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 class JobsList extends Component {
-  state = {jobsList: [], searchKey: ''}
+  state = {jobsList: [], searchKey: '', apiStatus: apiStatusConstants.initial}
 
   componentDidMount() {
     this.getJobsList()
@@ -21,6 +29,7 @@ class JobsList extends Component {
   }
 
   getJobsList = async () => {
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const {searchKey} = this.state
     const {employmentTypes, salaryRange} = this.props
     const employmentType = employmentTypes.join(',')
@@ -33,20 +42,26 @@ class JobsList extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    const {jobs} = data
-    const formattedJobsList = jobs.map(each => ({
-      companyLogoUrl: each.company_logo_url,
-      employmentType: each.employment_type,
-      id: each.id,
-      jobDescription: each.job_description,
-      location: each.location,
-      packagePerAnnum: each.package_per_annum,
-      rating: each.rating,
-      title: each.title,
-    }))
-    console.log(formattedJobsList)
-    this.setState({jobsList: formattedJobsList})
+    if (response.ok) {
+      const data = await response.json()
+      const {jobs} = data
+      const formattedJobsList = jobs.map(each => ({
+        companyLogoUrl: each.company_logo_url,
+        employmentType: each.employment_type,
+        id: each.id,
+        jobDescription: each.job_description,
+        location: each.location,
+        packagePerAnnum: each.package_per_annum,
+        rating: each.rating,
+        title: each.title,
+      }))
+      this.setState({
+        jobsList: formattedJobsList,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiStatusConstants.failure})
+    }
   }
 
   onChangeSearchKey = event => {
@@ -63,8 +78,58 @@ class JobsList extends Component {
     }
   }
 
+  renderSuccessView = () => {
+    const {jobsList} = this.state
+
+    return (
+      <ul className="jobs-list-container">
+        {jobsList.map(each => (
+          <JobItem key={each.id} jobItem={each} />
+        ))}
+      </ul>
+    )
+  }
+
+  renderLoadingView = () => (
+    <div className="products-loader-container">
+      <ThreeDots color="#f8fafc" height={50} width={50} />
+    </div>
+  )
+
+  renderFailureView = () => (
+    <>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="no jobs"
+        className="no-jobs-image"
+      />
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button type="button" className="retry-button" onClick={this.getJobsList}>
+        Retry
+      </button>
+    </>
+  )
+
+  renderJobsListView = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {jobsList, searchKey} = this.state
+    const {searchKey} = this.state
 
     return (
       <div className="jobs-list">
@@ -85,11 +150,7 @@ class JobsList extends Component {
             <IoMdSearch className="search-icon" />
           </button>
         </div>
-        <ul className="jobs-list-container">
-          {jobsList.map(each => (
-            <JobItem key={each.id} jobItem={each} />
-          ))}
-        </ul>
+        <div className="jobs-list-view">{this.renderJobsListView()}</div>
       </div>
     )
   }

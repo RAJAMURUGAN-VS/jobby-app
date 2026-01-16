@@ -69,7 +69,11 @@ class ProfileCard extends Component {
 
   renderFailureView = () => (
     <div className="products-loader-container">
-      <button type="button" className="retry-button">
+      <button
+        type="button"
+        className="retry-button"
+        onClick={this.getProfileDetails}
+      >
         Retry
       </button>
     </div>
