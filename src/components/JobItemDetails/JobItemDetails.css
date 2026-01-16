@@ -1,0 +1,77 @@
+.job-item-details-container {
+  background-color: black;
+  padding: 50px;
+  padding-top: 30px;
+  min-height: 90vh;
+}
+
+.jobItem {
+  background-color: #272727;
+  border-radius: 10px;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.description-title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.details-title {
+  color: #f8fafc;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.visit-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #6366f1;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.visit {
+  margin: 0px;
+}
+
+.details-description {
+  color: #f1f5f9;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.skills-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.skills-container {
+  display: flex;
+  gap: 7px;
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+.skill-logo {
+  height: 40px;
+  width: 40px;
+}
+
+.life-at-company-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.life-at-company-image {
+  width: 800px;
+  border-radius: 5px;
+}

@@ -1,3 +1,7 @@
+.link-element {
+  text-decoration: none;
+}
+
 .job-item-container {
   border-radius: 10px;
   padding: 20px;
