@@ -70,3 +70,7 @@
   list-style-type: none;
   width: 100%;
 }
+
+.no-jobs-found-container {
+  text-align: center;
+}

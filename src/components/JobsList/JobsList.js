@@ -1,9 +1,9 @@
-import './JobsList.css'
+import './index.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {IoMdSearch} from 'react-icons/io'
-import {ThreeDots} from 'react-loader-spinner'
-import JobItem from '../JobItem/JobItem'
+import Loader from 'react-loader-spinner'
+import JobItem from '../JobItem'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -81,7 +81,21 @@ class JobsList extends Component {
   renderSuccessView = () => {
     const {jobsList} = this.state
 
-    return (
+    console.log(jobsList.length)
+
+    return jobsList.length === 0 ? (
+      <div className="no-jobs-found-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+          alt="no jobs"
+          className="no-jobs-image"
+        />
+        <h1 className="failure-heading">No Jobs Found</h1>
+        <p className="failure-description">
+          We could not find any jobs. Try other filters.
+        </p>
+      </div>
+    ) : (
       <ul className="jobs-list-container">
         {jobsList.map(each => (
           <JobItem key={each.id} jobItem={each} />
@@ -92,7 +106,7 @@ class JobsList extends Component {
 
   renderLoadingView = () => (
     <div className="products-loader-container">
-      <ThreeDots color="#f8fafc" height={50} width={50} />
+      <Loader type="ThreeDots" color="#f8fafc" height="50" width="50" />
     </div>
   )
 
