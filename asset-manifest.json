@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jobby-app/static/css/main.0fa011e5.css",
+    "main.js": "/jobby-app/static/js/main.6b5dc66b.js",
+    "index.html": "/jobby-app/index.html",
+    "main.0fa011e5.css.map": "/jobby-app/static/css/main.0fa011e5.css.map",
+    "main.6b5dc66b.js.map": "/jobby-app/static/js/main.6b5dc66b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0fa011e5.css",
+    "static/js/main.6b5dc66b.js"
+  ]
+}
