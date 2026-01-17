@@ -15,6 +15,14 @@
   gap: 15px;
 }
 
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-logo-link {
+  text-decoration: none;
+}
+
 .nav-website-logo {
   height: auto;
   width: 100px;
@@ -22,7 +30,37 @@
 
 .nav-element {
   color: white;
-  text-decoration: none;
+}
+
+.nav-home-icon {
+  display: none;
+  height: 30px;
+  width: 30px;
+  color: #f1f5f9;
+  margin-right: 20px;
+}
+
+.nav-login-icon {
+  display: none;
+  height: 25px;
+  width: 25px;
+  color: #f1f5f9;
+  margin-right: 20px;
+}
+
+.logout-icon-button {
+  display: none;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+  padding: 0px;
+}
+
+.nav-logout-icon {
+  height: 25px;
+  width: 25px;
+  color: #f1f5f9;
+  cursor: pointer;
 }
 
 .logout-button {
@@ -33,4 +71,38 @@
   padding: 7px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+@media (max-width: 576px) {
+  .nav-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: flex-end;
+  }
+  .nav-logo-link {
+    margin-right: auto;
+  }
+  .nav-website-logo {
+    width: 80px;
+  }
+  .nav-element-container {
+    justify-items: flex-end;
+    gap: 0px;
+  }
+  .nav-element {
+    display: none;
+  }
+  .nav-home-icon {
+    display: flex;
+  }
+  .nav-login-icon {
+    display: flex;
+  }
+  .logout-icon-button {
+    display: flex;
+  }
+  .logout-button {
+    justify-items: flex-end;
+    display: none;
+  }
 }
