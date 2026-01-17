@@ -28,3 +28,16 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+@media (max-width: 576px) {
+  .home-container {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+  }
+  .home-title {
+    font-size: 30px;
+    width: 100%;
+  }
+  .home-description {
+    width: 100%;
+  }
+}
