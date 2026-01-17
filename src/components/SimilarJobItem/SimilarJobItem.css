@@ -4,3 +4,9 @@
   padding: 20px;
   width: 270px;
 }
+
+@media (max-width: 576px) {
+  .similar-job-item-container {
+    width: 100%;
+  }
+}
