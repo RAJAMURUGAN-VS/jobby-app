@@ -146,7 +146,7 @@ class JobsList extends Component {
     const {searchKey} = this.state
 
     return (
-      <div className="jobs-list">
+      <>
         <div className="job-search-container">
           <input
             type="search"
@@ -164,8 +164,10 @@ class JobsList extends Component {
             <IoMdSearch className="search-icon" />
           </button>
         </div>
-        <div className="jobs-list-view">{this.renderJobsListView()}</div>
-      </div>
+        <div className="jobs-list">
+          <div className="jobs-list-view">{this.renderJobsListView()}</div>
+        </div>
+      </>
     )
   }
 }

@@ -32,6 +32,7 @@
 @media (max-width: 576px) {
   .home-container {
     background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+    padding: 30px;
   }
   .home-title {
     font-size: 30px;

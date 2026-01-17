@@ -3,6 +3,7 @@
   background-color: black;
   padding: 50px;
   padding-top: 30px;
+  padding-bottom: 0px;
   min-height: 90vh;
 }
 
@@ -26,4 +27,14 @@
 .filter-label {
   color: #f1f5f9;
   margin-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .jobs-container {
+    flex-direction: column;
+    padding: 30px;
+  }
+  .sidebar-container {
+    width: 100%;
+  }
 }
