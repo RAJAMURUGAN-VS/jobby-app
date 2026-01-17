@@ -77,7 +77,15 @@
 
 @media (max-width: 576px) {
   .job-search-container {
-    order: -1;
+    margin-top: 25px;
     width: 100%;
+  }
+  .failure-heading {
+    text-align: center;
+    font-size: 24px;
+  }
+  .no-jobs-image {
+    margin-top: 40px;
+    width: 250px;
   }
 }

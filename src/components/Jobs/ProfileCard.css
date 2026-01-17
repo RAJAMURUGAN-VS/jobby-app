@@ -25,10 +25,11 @@
 }
 
 .profile-card-container {
-  background-color: #b6c5ff;
+  background-image: url("https://assets.ccbp.in/frontend/react-js/profile-bg.png");
   border-radius: 20px;
   height: 100%;
   width: 100%;
+  background-size: cover;
   padding: 20px;
   padding-top: 15px;
   margin-bottom: 20px;

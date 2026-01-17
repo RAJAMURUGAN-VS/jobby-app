@@ -23,3 +23,12 @@
 .not-found-description {
   color: #f1f5f9;
 }
+
+@media(max-width: 576px) {
+  .not-found-image {
+    width: 250px;
+  }
+  .not-found-heading {
+    font-size: 24px;
+  }
+}
