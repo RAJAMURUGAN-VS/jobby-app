@@ -1,8 +1,8 @@
 import './Jobs.css'
 import {Component} from 'react'
-import Navbar from '../Navbar/Navbar'
-import ProfileCard from './ProfileCard'
-import JobsList from '../JobsList/JobsList'
+import Navbar from '../../components/Navbar/Navbar'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import JobsList from '../../components/JobsList/JobsList'
 
 class Jobs extends Component {
   employmentTypesList = [

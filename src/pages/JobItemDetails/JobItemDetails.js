@@ -4,8 +4,8 @@ import Cookies from 'js-cookie'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn, MdEmail} from 'react-icons/md'
 import {FiExternalLink} from 'react-icons/fi'
-import Navbar from '../Navbar/Navbar'
-import SimilarJobs from '../SimilarJobs/SimilarJobs'
+import Navbar from '../../components/Navbar/Navbar'
+import SimilarJobs from '../../components/SimilarJobs/SimilarJobs'
 
 class JobItemDetails extends Component {
   state = {jobDetails: {skills: [], lifeAtCompany: {}}, similarJobs: []}

@@ -1,11 +1,11 @@
 import './App.css'
 import {Switch, Route, Redirect} from 'react-router-dom'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import Home from './components/Home/Home'
-import Login from './components/Login/Login'
-import Jobs from './components/Jobs/Jobs'
-import JobItemDetails from './components/JobItemDetails/JobItemDetails'
-import NotFound from './components/NotFound/NotFound'
+import ProtectedRoute from './routes/ProtectedRoute/ProtectedRoute'
+import Home from './pages/Home/Home'
+import Login from './pages/Login/Login'
+import Jobs from './pages/Jobs/Jobs'
+import JobItemDetails from './pages/JobItemDetails/JobItemDetails'
+import NotFound from './pages/NotFound/NotFound'
 
 const App = () => (
   <Switch>

@@ -1,7 +1,7 @@
 import './ProfileCard.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {ThreeDots} from 'react-loader-spinner'
+import Loader from '../common/Loader/Loader'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -63,7 +63,7 @@ class ProfileCard extends Component {
 
   renderLoadingView = () => (
     <div className="products-loader-container">
-      <ThreeDots color="#f8fafc" height={50} width={50} />
+      <Loader />
     </div>
   )
 

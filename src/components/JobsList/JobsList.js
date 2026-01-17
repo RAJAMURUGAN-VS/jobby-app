@@ -2,7 +2,7 @@ import './JobsList.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {IoMdSearch} from 'react-icons/io'
-import {ThreeDots} from 'react-loader-spinner'
+import Loader from '../common/Loader/Loader'
 import JobItem from '../JobItem/JobItem'
 
 const apiStatusConstants = {
@@ -106,7 +106,7 @@ class JobsList extends Component {
 
   renderLoadingView = () => (
     <div className="products-loader-container">
-      <ThreeDots color="#f8fafc" height={50} width={50} />
+      <Loader />
     </div>
   )
 
