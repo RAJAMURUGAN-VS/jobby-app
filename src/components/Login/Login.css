@@ -5,6 +5,7 @@
   background-color: black;
   height: 100vh;
   font-family: 'Roboto';
+  padding: 30px;
 }
 
 .login-form-container {
@@ -58,4 +59,13 @@
 .login-form-error-message {
   color: #ff0b37;
   font-size: 12px;
+}
+
+@media(max-width: 576px) {
+  .website-logo {
+    width: 120px;
+  }
+  .login-form-label {
+    font-size: 14px;
+  }
 }
