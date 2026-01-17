@@ -11,7 +11,19 @@ class JobItemDetails extends Component {
   state = {jobDetails: {skills: [], lifeAtCompany: {}}, similarJobs: []}
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     this.getBlogItemdetails()
+  }
+
+  componentDidUpdate(prevProps) {
+    const prevId = prevProps.match.params.id
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    if (prevId !== id) {
+      window.scrollTo(0, 0)
+      this.getBlogItemdetails()
+    }
   }
 
   getBlogItemdetails = async () => {
