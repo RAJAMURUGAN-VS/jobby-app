@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# Jobby App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jobby App is a secure, dynamic job-finding platform with robust authentication, protected client-side routes, and JWT-based API access. The app empowers users to search for employment opportunities, filter results by criteria like employment type and salary range, deep dive into job details with similar role suggestions, and enjoy seamless navigation with enhanced UI state handling for loading and errors.  
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Secure Authentication**  
+  - User sign-in and sign-out with JWT (JSON Web Token)  
+  - Protected routes to prevent unauthorized access  
+- **Job Search & Filtering**  
+  - Keyword-based job search  
+  - Filters for employment type (e.g., full-time, part-time, freelance)  
+  - Filters for salary range  
+- **Job Listings & Details**  
+  - User-friendly list of jobs with essential meta information  
+  - Detailed job view with company info, skills, description, and similar job recommendations  
+- **Enhanced User Experience**  
+  - Loading indicators and graceful error state handling  
+  - Responsive design for mobile and desktop  
+  - Easy navigation using React Router  
+- **API Access & Security**  
+  - All job-related API calls are secured by JWT authentication  
+  - Minimal exposure of sensitive data
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Language       | % Usage      |
+|----------------|-------------|
+| JavaScript     | 68.5%       |
+| CSS            | 27%         |
+| HTML           | 4.5%        |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frameworks & Libraries:**  
+  - React
+  - React Router
+  - JWT-decode (for JWT validation)
+  - Axios/fetch for API calls
 
-### `npm test`
+- **State Management:**  
+  - React (useState, useEffect, custom hooks)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (>= v14)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/RAJAMURUGAN-VS/jobby-app.git
+   cd jobby-app
+   ```
 
-### `npm run eject`
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Environment Setup:**  
+   Create a `.env` file in the project root and configure the necessary API endpoint and JWT secret as per your backend specs, e.g.:
+   ```
+   REACT_APP_API_URL=https://your-api-endpoint.com
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Start the development server:**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build (for production)
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Folder Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+jobby-app/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/        # API calls, auth utilities
+│   ├── utils/
+│   ├── App.js
+│   └── index.js
+├── .env.example
+├── package.json
+└── README.md
+```
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Login:**  
+  Enter credentials to receive a JWT and access the jobs dashboard.
+- **Browse & Filter Jobs:**  
+  Use filters to narrow down your job search by employment type or salary.
+- **View Details:**  
+  Click any job listing to see a detailed overview and similar positions.
+- **Apply:**  
+  Use the provided call-to-action to proceed with job applications (integration with actual job applications depends on the backend implementation).
 
-### Analyzing the Bundle Size
+## API Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- The application expects a backend with routes for:
+  - `/login` (JWT auth)
+  - `/jobs` (List jobs, supports query params)
+  - `/jobs/:id` (Job details)
+  - `/jobs/:id/similar` (Similar jobs list)
+- All routes (except `/login`) require JWT in `Authorization` header:  
+  `Authorization: Bearer <token>`
 
-### Making a Progressive Web App
+## Security
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Protected routes using React Router `<PrivateRoute />` pattern  
+- JWTs are stored securely (consider httpOnly cookies or secure local storage)
+- No sensitive data or secrets are exposed on the frontend
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/yourFeature`)
+3. Commit your changes (`git commit -am 'Add feature'`)
+4. Push to the branch (`git push origin feature/yourFeature`)
+5. Create a pull request
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[MIT](LICENSE) © 2026 RAJAMURUGAN-VS
 
-### `npm run build` fails to minify
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Powered by [React](https://reactjs.org/)
+- Icons and design inspirations from [Font Awesome](https://fontawesome.com/) and [Dribbble](https://dribbble.com/)
