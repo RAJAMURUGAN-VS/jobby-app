@@ -88,6 +88,8 @@ class Login extends Component {
           {showSubmitError && (
             <p className="login-form-error-message">{errorMessage}</p>
           )}
+          <p className="cred">Test Credentials</p>
+          <p className="cred">username: rahul, password: rahul@2021</p>
         </form>
       </div>
     )

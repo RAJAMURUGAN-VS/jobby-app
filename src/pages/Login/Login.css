@@ -61,6 +61,12 @@
   font-size: 12px;
 }
 
+.cred {
+  color: rgb(211, 216, 240);
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
 @media(max-width: 576px) {
   .website-logo {
     width: 120px;
